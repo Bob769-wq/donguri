@@ -4,12 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-hero-section',
   imports: [],
   template: `
-    <p>
-      hero-section works!
-    </p>
+    <section class="bg-white">
+      <div class="w-full px-4 pt-4 max-w-[1170px] mx-auto">
+        <img src="/hero-section/10year.webp" alt="10year" />
+      </div>
+    </section>
   `,
-  styles: ``
+  styles: ``,
 })
-export class HeroSection {
-
-}
+export class HeroSection {}

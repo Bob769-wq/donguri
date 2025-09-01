@@ -1,15 +1,203 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
+interface NewList {
+  id: number;
+  title: string;
+  price: string;
+  oldprice?: string;
+  link: string;
+  img: string;
+  img2?: string;
+  soldout?: boolean;
+}
 @Component({
   selector: 'app-new-hot-products',
-  imports: [],
+  imports: [RouterLink],
   template: `
-    <p>
-      new-products works!
-    </p>
+    <div class="p-6"><img src="/new-products/newproductlogo.webp" alt="hot-products" /></div>
+    <section class="max-w-[1170px] mx-auto px-6">
+      <div class="flex gap-4 overflow-x-auto p-8">
+        @for (item of newItems; track item.id) {
+          @if (item.soldout) {
+            <a [routerLink]="item.link" class="relative group block">
+              <div class="relative lg:w-64">
+                <img
+                  [src]="item.img"
+                  class="w-full transition-opacity duration-300 group-hover:opacity-0"
+                  [alt]="item.title"
+                />
+                <img
+                  [src]="item.img2"
+                  class="w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  [alt]="item.title"
+                />
+              </div>
+              <div class="absolute bottom-[70px] left-0 right-0 bg-[#9E9E9E] opacity-80">
+                <p class="text-white text-center py-2">售完</p>
+              </div>
+
+              <h4 class="text-center">{{ item.title }}</h4>
+              <p class="text-center">{{ item.price }}</p>
+            </a>
+          } @else {
+            <a [routerLink]="item.link" class="relative group block">
+              <div class="relative lg:w-64 md:w-52">
+                <img
+                  [src]="item.img"
+                  class="w-full transition-opacity duration-300 group-hover:opacity-0"
+                  [alt]="item.title"
+                />
+                <img
+                  [src]="item.img2"
+                  class="w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  [alt]="item.title"
+                />
+              </div>
+              <div class="absolute group-hover:flex bottom-20 right-4 gap-2 hidden ">
+                <div class="bg-white rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    width="24"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 157.1 224.6 144 197.3 144C150.3 144 112.2 182.1 112.2 229.1C112.2 279 144.2 327.5 180.3 371.4C221.4 421.4 271.7 465.4 306.2 491.7C309.4 494.1 314.1 495.9 320.2 495.9C326.3 495.9 331 494.1 334.2 491.7C368.7 465.4 419 421.3 460.1 371.4C496.3 327.5 528.2 279 528.2 229.1C528.2 182.1 490.1 144 443.1 144zM335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1C576 297.7 533.1 358 496.9 401.9C452.8 455.5 399.6 502 363.1 529.8C350.8 539.2 335.6 543.9 320 543.9C304.4 543.9 289.2 539.2 276.9 529.8C240.4 502 187.2 455.5 143.1 402C106.9 358.1 64 297.7 64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1L320 171.8L335 151.1z"
+                    />
+                  </svg>
+                </div>
+                <div class="bg-white rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    width="24"
+                    class="stroke-black"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path
+                      d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <h4 class="text-center mt-2">{{ item.title }}</h4>
+              <p class="text-center">{{ item.price }}</p>
+            </a>
+          }
+        }
+      </div>
+      <div class="flex justify-center mt-16">
+        <a
+          class="inline-block px-20 py-2 text-center bg-[#E1D9C4] text-[#755B3A] hover:bg-[#C8B992]"
+          >查看更多</a
+        >
+      </div>
+    </section>
   `,
-  styles: ``
+  styles: ``,
 })
 export class NewProducts {
-
+  newItems: NewList[] = [
+    {
+      id: 1,
+      title: '珠扣名片夾 龍貓 起飛',
+      price: 'NT$1,130',
+      link: '/chuco1',
+      img: '/new-products/chuco1.webp',
+      img2: '/new-products/chuco2.webp',
+    },
+    {
+      id: 2,
+      title: '珠扣眼鏡袋 龍貓 起飛',
+      price: 'NT$1,280',
+      link: '/chucoglasses',
+      img: '/new-products/chucoglasses1.webp',
+      img2: '/new-products/chucoglasses2.webp',
+    },
+    {
+      id: 3,
+      title: '珠扣寬底收納包 龍貓 起飛',
+      price: 'NT$1,420',
+      link: '/chucowidth',
+      img: '/new-products/chucowidth1.webp',
+      img2: '/new-products/chucowidth2.webp',
+    },
+    {
+      id: 4,
+      title: '珠扣收納包 龍貓 起飛',
+      price: 'NT$1,030',
+      link: '/chucosonar',
+      img: '/new-products/chucosonar1.webp',
+      img2: '/new-products/chucosonar2.webp',
+    },
+    {
+      id: 5,
+      title: '珠扣零錢包 龍貓 起飛',
+      price: 'NT$1,030',
+      link: '/chucomoney',
+      img: '/new-products/chucomoney1.webp',
+      img2: '/new-products/chucomoney2.webp',
+    },
+    {
+      id: 6,
+      title: '單試管花插 魔法公主 木靈美好的一天',
+      price: 'NT$1,400',
+      link: '/mori-one',
+      img: '/new-products/mori-one1.webp',
+      img2: '/new-products/mori-one2.webp',
+    },
+    {
+      id: 7,
+      title: '日本職人注染布 龍貓 雨痕',
+      price: 'NT$980',
+      link: '/totororain',
+      img: '/new-products/totororain1.webp',
+      img2: '/new-products/totororain2.webp',
+    },
+    {
+      id: 8,
+      title: '刺繡扇子袋 神隱少女 淺棕色',
+      price: 'NT$420',
+      link: '/noface',
+      img: '/new-products/noface1.webp',
+      img2: '/new-products/noface2.webp',
+    },
+    {
+      id: 9,
+      title: '刺繡扇子袋 龍貓 藏藍色',
+      price: 'NT$420',
+      link: '/totoroblue',
+      img: '/new-products/totoroblue1.webp',
+      img2: '/new-products/totoroblue2.webp',
+    },
+    {
+      id: 10,
+      title: '浴室毛巾腳踏墊 龍貓 某一天的龍貓',
+      price: 'NT$580',
+      link: '/somedaytotoro',
+      img: '/new-products/somedaytotoro1.webp',
+      img2: '/new-products/somedaytotoro2.webp',
+    },
+    {
+      id: 11,
+      title: '浴室毛巾腳踏墊 魔女宅急便 某一天的吉吉',
+      price: 'NT$580',
+      link: '/somedaykiki',
+      img: '/new-products/somedaykiki1.webp',
+      img2: '/new-products/somedaykiki2.webp',
+    },
+    {
+      id: 12,
+      title: '浴室毛巾腳踏墊 龍貓 大龍貓剪影',
+      price: 'NT$580',
+      link: '/bigtotoro',
+      img: '/new-products/bigtotoro1.webp',
+      img2: '/new-products/bigtotoro2.webp',
+      soldout: true,
+    },
+  ];
 }
