@@ -11,6 +11,8 @@ import { Totoro } from './totoro/totoro';
 import { Kiki } from './kiki/kiki';
 import { Information } from './information/information';
 import { ProductsPreview } from './products-preview/products-preview';
+import { DonguriStore } from './donguri-store/donguri-store';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +29,8 @@ import { ProductsPreview } from './products-preview/products-preview';
     Kiki,
     Information,
     ProductsPreview,
+    DonguriStore,
+    Footer,
   ],
   template: `
     <app-header />
@@ -40,6 +44,8 @@ import { ProductsPreview } from './products-preview/products-preview';
     <app-kiki />
     <app-information />
     <app-products-preview />
+    <app-donguri-store />
+    <app-footer />
   `,
   styles: ``,
 })
