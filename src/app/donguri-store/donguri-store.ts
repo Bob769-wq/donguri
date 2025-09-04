@@ -14,6 +14,7 @@ interface StoreList {
     <div class="p-6"><img src="/donguri-store/storelogo.webp" alt="hot-products" /></div>
     <section class="max-w-[1170px] mx-auto px-6 py-5">
       <div class="grid grid-cols-2 gap-3">
+<!--        TODO: 這種用圖片排版的下次用純css刻板-->
         @for (item of storeItems; track item.id) {
           <a [href]="item.link" target="_blank"
             ><img class="w-full" [src]="item.img" [alt]="item.title"

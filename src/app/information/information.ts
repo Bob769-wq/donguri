@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="p-6"><img src="/information/informationlogo.webp" alt="hot-products" /></div>
     <section class="max-w-[1170px] mx-auto px-6">
+<!--      TODO: 這邊資料應該是dynamic要從後端抓回來的，不應該直接寫死-->
       <div>
         <p class="font-medium mb-2">2025.1.14</p>
         <a class="text-[#3493FA] inline-block mb-2">【重要】2025年春節連假出貨公告</a>

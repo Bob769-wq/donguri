@@ -5,10 +5,12 @@ interface NewList {
   id: number;
   title: string;
   price: string;
+  // TODO: 請使用camel case
   oldprice?: string;
   link: string;
   img: string;
   img2?: string;
+  // TODO: 請使用camel case
   soldout?: boolean;
 }
 @Component({
@@ -33,6 +35,7 @@ interface NewList {
                   [alt]="item.title"
                 />
               </div>
+<!--              TODO: 之前應該有說過code裡面盡量不要出現px-->
               <div class="absolute bottom-[70px] left-0 right-0 bg-[#9E9E9E] opacity-80">
                 <p class="text-white text-center py-2">售完</p>
               </div>
