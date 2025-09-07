@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   imports: [RouterLink],
   template: `
-    <footer class="max-w-[1170px] mx-auto px-6 border-t border-t-[#E6E5E5] py-8">
+    <footer class="px-6 border-t border-t-[#E6E5E5] py-8">
       <div class="flex flex-col">
         <div class="flex mt-4">
           <div class="flex-1 px-5 py-4">
@@ -59,12 +59,6 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
     </footer>
-    <div class="bg-[#5A8234] text-xs text-center text-white py-5">
-      <h4>Copyright © 2025 Donguri Republic Taiwan</h4>
-      <p class="mt-3">
-        © 1984 Hayao Miyazaki/Studio Ghibli, H　© 1986 Hayao Miyazaki/Studio Ghibli　© 1988 Hayao Miyazaki/Studio Ghibli　© Akiyuki Nosaka / Shinchosha, 1988　© 1989 Eiko Kadono/Hayao Miyazaki/Studio Ghibli, N　© 1991 Hotaru Okamoto, Yuko Tone/Isao Takahata/Studio Ghibli, NH　© 1992 Hayao Miyazaki/Studio Ghibli, NN　© 1993 Saeko Himuro/Keiko Niwa/Studio Ghibli, N　© 1994 Isao Takahata/Studio Ghibli, NH　© 1995 Aoi Hiiragi, Shueisha/Hayao Miyazaki/Studio Ghibli, NH　© 1995 Hayao Miyazaki/Studio Ghibli　© 1997 Hayao Miyazaki/Studio Ghibli, ND　© 1999 Hisaichi Ishii/Isao Takahata/Studio Ghibli, NHD　© 2001 Hayao Miyazaki/Studio Ghibli, NDDTM　© 2002 Aoi Hiiragi/Reiko Yoshida/Studio Ghibli, NDHMT　© 2002 Toshio Suzuki/Studio Ghibli, NDHMT　© 2004 Diana Wynne Jones/Hayao Miyazaki/Studio Ghibli, NDDMT　© 2006 Ursula K. Le Guin/Keiko Niwa/Studio Ghibli, NDHDMT　© 2008 Hayao Miyazaki/Studio Ghibli, NDHDMT　© 2010 Mary Norton/Keiko Niwa/Studio Ghibli, NDHDMTW　© 2011 Chizuru Takahashi, Tetsuro Sayama/Keiko Niwa/Studio Ghibli, NDHDMT　© 2013 Hayao Miyazaki/Studio Ghibli, NDHDMTK　© 2013 Isao Takahata, Riko Sakaguchi/Studio Ghibli, NDHDMTK　© 2014 Joan G. Robinson/Keiko Niwa/Studio Ghibli, NDHDMTK　© 2016 Studio Ghibli - Wild Bunch - Why Not Productions - Arte France Cinéma - CN4 Productions - Belvision - Nippon Television Network - Dentsu - Hakuhodo DYMP - Walt Disney Japan - Mitsubishi - Toho　© 2020 NHK, NEP, Studio Ghibli　© 2023 Hayao Miyazaki/Studio Ghibli　© Museo d'Arte Ghibli　© BENELIC
-      </p>
-    </div>
   `,
   styles: ``,
 })

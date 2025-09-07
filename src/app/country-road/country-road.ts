@@ -16,7 +16,7 @@ interface CountryList {
   selector: 'app-country-road',
   imports: [RouterLink],
   template: `
-    <section class="max-w-[1170px] mx-auto px-6 py-20">
+    <section class="px-6 py-20">
       <div class="text-center text-2xl">
         <h3>心之谷</h3>
       </div>
@@ -116,7 +116,7 @@ interface CountryList {
       </div>
       <div class="flex justify-center mt-16">
         <a
-          class="inline-block px-20 py-2 text-center bg-[#E1D9C4] text-[#755B3A] hover:bg-[#C8B992]"
+          class="inline-block px-20 py-2 text-center cursor-pointer bg-[var(--check-button)] text-[var(--check-text)] hover:bg-[var(--check-hover)]"
           >查看更多</a
         >
       </div>

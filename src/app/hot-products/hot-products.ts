@@ -13,10 +13,12 @@ interface HotList {
 
 @Component({
   selector: 'app-hot-hot-products',
-  imports: [RouterLinkActive, RouterLink, MatIcon],
+  imports: [RouterLink],
   template: `
-    <div class="p-6"><img src="/hot-products/hotproductslogo.webp" alt="hot-products" /></div>
-    <section class="max-w-[1170px] mx-auto px-6 py-8">
+    <div class="p-6">
+      <img src="/hot-products/hotproductslogo.webp" alt="hot-products" class="w-full" />
+    </div>
+    <section class="px-6 py-8">
       <div class="grid grid-cols-4 gap-4">
         @for (item of products; track item.id) {
           <a [routerLink]="item.link" class="relative group block">
@@ -70,7 +72,7 @@ interface HotList {
 
       <div class="flex justify-center mt-16">
         <a
-          class="inline-block px-20 py-2 text-center bg-[#E1D9C4] text-[#755B3A] hover:bg-[#C8B992]"
+          class="inline-block px-20 py-2 text-center cursor-pointer bg-[var(--check-button)] text-[var(--check-text)] hover:bg-[var(--check-hover)]"
           >查看更多</a
         >
       </div>

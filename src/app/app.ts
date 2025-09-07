@@ -13,11 +13,11 @@ import { Information } from './information/information';
 import { ProductsPreview } from './products-preview/products-preview';
 import { DonguriStore } from './donguri-store/donguri-store';
 import { Footer } from './footer/footer';
+import { Copyright } from './copyright/copyright';
 
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet,
     Header,
     HeroSection,
     Feature,
@@ -31,21 +31,25 @@ import { Footer } from './footer/footer';
     ProductsPreview,
     DonguriStore,
     Footer,
+    Copyright,
   ],
   template: `
     <app-header />
-    <app-hero-section />
-    <app-feature />
-    <app-hot-hot-products />
-    <app-new-hot-products />
-    <app-country-road />
-    <app-howl-castle />
-    <app-totoro />
-    <app-kiki />
-    <app-information />
-    <app-products-preview />
-    <app-donguri-store />
-    <app-footer />
+    <div class="w-full px-4 pt-4 max-w-[1170px] mx-auto">
+      <app-hero-section />
+      <app-feature />
+      <app-hot-hot-products />
+      <app-new-hot-products />
+      <app-country-road />
+      <app-howl-castle />
+      <app-totoro />
+      <app-kiki />
+      <app-information />
+      <app-products-preview />
+      <app-donguri-store />
+      <app-footer />
+    </div>
+    <app-copyright />
   `,
   styles: ``,
 })

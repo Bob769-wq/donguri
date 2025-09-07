@@ -5,23 +5,23 @@ interface NewList {
   id: number;
   title: string;
   price: string;
-  // TODO: 請使用camel case
-  oldprice?: string;
+
+  oldPrice?: string;
   link: string;
   img: string;
   img2?: string;
-  // TODO: 請使用camel case
-  soldout?: boolean;
+
+  soldOut?: boolean;
 }
 @Component({
   selector: 'app-new-hot-products',
   imports: [RouterLink],
   template: `
     <div class="p-6"><img src="/new-products/newproductlogo.webp" alt="hot-products" /></div>
-    <section class="max-w-[1170px] mx-auto px-6">
+    <section class=" px-6">
       <div class="flex gap-4 overflow-x-auto p-8">
         @for (item of newItems; track item.id) {
-          @if (item.soldout) {
+          @if (item.soldOut) {
             <a [routerLink]="item.link" class="relative group block">
               <div class="relative lg:w-64">
                 <img
@@ -35,8 +35,7 @@ interface NewList {
                   [alt]="item.title"
                 />
               </div>
-<!--              TODO: 之前應該有說過code裡面盡量不要出現px-->
-              <div class="absolute bottom-[70px] left-0 right-0 bg-[#9E9E9E] opacity-80">
+              <div class="absolute bottom-[var(--bottom)] left-0 right-0 bg-[#9E9E9E] opacity-80">
                 <p class="text-white text-center py-2">售完</p>
               </div>
 
@@ -95,7 +94,7 @@ interface NewList {
       </div>
       <div class="flex justify-center mt-16">
         <a
-          class="inline-block px-20 py-2 text-center bg-[#E1D9C4] text-[#755B3A] hover:bg-[#C8B992]"
+          class="inline-block px-20 py-2 text-center cursor-pointer bg-[var(--check-button)] text-[var(--check-text)] hover:bg-[var(--check-hover)]"
           >查看更多</a
         >
       </div>
@@ -200,7 +199,7 @@ export class NewProducts {
       link: '/bigtotoro',
       img: '/new-products/bigtotoro1.webp',
       img2: '/new-products/bigtotoro2.webp',
-      soldout: true,
+      soldOut: true,
     },
   ];
 }

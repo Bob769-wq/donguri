@@ -13,7 +13,7 @@ interface FeatureItems {
   imports: [RouterLink, RouterLinkActive],
   template: `
     <div class="p-3"><img src="/feature/featurelogo.webp" alt="feature" /></div>
-    <section class="max-w-[1170px] mx-auto px-6">
+    <section class="px-6">
       <div class="grid grid-cols-3 gap-3">
         @for (item of featureCard; track item.id) {
           <a [routerLink]="item.link" routerLinkActive="">
@@ -23,7 +23,7 @@ interface FeatureItems {
       </div>
       <div class="flex justify-center">
         <a
-          class="inline-block px-20 py-2 text-center bg-[#E1D9C4] text-[#755B3A] hover:bg-[#C8B992]"
+          class="inline-block px-20 py-2 text-center cursor-pointer bg-[var(--check-button)] text-[var(--check-text)] hover:bg-[var(--check-hover)]"
           >特集一覽</a
         >
       </div>
